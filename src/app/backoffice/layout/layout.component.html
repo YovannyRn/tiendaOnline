@@ -1,0 +1,15 @@
+<!-- Header del Backoffice -->
+<app-header-backoffice></app-header-backoffice>
+<!-- contenedor padre -->
+<div class="web-container" [class.collapse]="!isActiveSidebar">
+    <!-- contenedor hijo donde se carga el contenido de cada pagina del Backoffice -->
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- contenedor donde guardaremos el sidebar -->
+    <div>
+        <app-sidebar></app-sidebar>
+    </div>
+</div>
+

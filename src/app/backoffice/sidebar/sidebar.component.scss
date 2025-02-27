@@ -1,0 +1,17 @@
+.element-sidebar:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.icon-sidebar {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+.sidebar-container {
+    overflow-x: hidden;
+
+    &.hide-me{
+        span,p:not(.not-me){
+            display: none;
+        }
+    }
+}

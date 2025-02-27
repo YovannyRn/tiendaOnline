@@ -1,0 +1,59 @@
+.img-perfil{
+    z-index: -1;
+    top: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    .img-fluid{
+        width: 100%;
+        height: 200px;
+        
+    }
+}
+
+.perfil{
+    z-index: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 9%;
+
+    .perfil-card{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        border-radius: 15px;
+        
+    
+        .avatar{
+            width: 200px;
+            height: 200px;
+            
+            .img-perfil{
+                width: 100%;
+                height: 90%;
+                
+            }
+
+        }
+        .name{
+            padding-left: 10%;
+        }
+
+        .icon-perfil{
+            color: #0d6efd;
+        }
+
+        ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+
+            li{
+                list-style-type: none;
+            }
+        }
+
+    }
+    
+}

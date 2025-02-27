@@ -1,0 +1,70 @@
+.settings-container {
+    width: 75%;
+    max-width: 275px;
+    top: 70px;
+    bottom: 0;
+    background-color: #fbfbfb;
+}
+
+.btn{
+    display: block;
+}
+
+.boton3{
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+@media (max-width: 576px) {
+    .boton3{
+        span{
+            display: none;
+        }
+        i{
+            font-size: larger;
+        }
+    }   
+}
+@media (min-width: 1200px) {
+    .boton3{
+        display: none;
+    }
+}
+
+.boton4{
+    width: 200px;
+}
+
+@media (max-width: 992px) {
+    .boton4{
+        width: 80%;
+    }
+}
+
+.boton5{
+    background-color: orange;
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .boton5{
+        display: none;
+    }
+}
+.boton6{
+    height: 300px;
+}
+
+@media  (max-height: 700px){
+    .boton6{
+        height: 100px;
+    }
+}
+
+@media (min-height: 800px){
+    .boton6{
+        display: none;
+    }
+}

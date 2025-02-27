@@ -1,0 +1,79 @@
+<div class="bg-dark h-100 sidebar-container" [class.hide-me]="!isActiveMenuHeader">
+    <div class="d-flex flex-column align-items-end text-white">
+        <div class="w-100 text-end text-primary py-4 small">
+            <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Navegación General'}}</p>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Inicio</span>
+                <i class="icon-sidebar bi bi-house-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2" routerLink="/app/perfil">
+                <span>Perfil</span>
+                <i class="icon-sidebar bi bi-person-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Cambiar contraseña</span>
+                <i class="icon-sidebar bi bi-key-fill text-end m-0"></i>
+            </div>
+        </div>
+        <div class="w-100 text-end text-primary py-4 small">
+            <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Gestión del Sistema'}}</p>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Productos</span>
+                <i class="icon-sidebar bi bi-bag-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Pedidos</span>
+                <i class="icon-sidebar bi bi-bag-check-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Gestor de Categorias </span>
+                <i class="icon-sidebar bi bi-list-nested text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Roles y permisos</span>
+                <i class="icon-sidebar bi bi-people-fill text-end m-0"></i>
+            </div>
+        </div>
+        <div class="w-100 text-end text-primary py-4 small">
+            <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Soporte y Ayuda'}}</p>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Sobre Nosotros</span>
+                <i class="icon-sidebar bi bi-info-circle-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Soporte al cliente</span>
+                <i class="icon-sidebar bi bi-question-circle-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Cerrar sesión </span>
+                <i class="icon-sidebar bi bi-box-arrow-right text-end m-0"></i>
+            </div>
+        </div>
+        <div class="w-100 text-end text-primary py-4 small">
+            <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Privacidad y Seguridad'}}</p>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Politica de Privacidad</span>
+                <i class="icon-sidebar bi bi-shield-lock-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Politica de Seguridad</span>
+                <i class="icon-sidebar bi bi-shield-fill-check text-end m-0"></i>
+            </div>
+        </div>
+        <div class="w-100 text-end text-primary py-4 small">
+            <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Redes Sociales'}}</p>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Facebook</span>
+                <i class="icon-sidebar bi bi-facebook text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Instagram</span>
+                <i class="icon-sidebar bi bi-instagram text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2">
+                <span>Twitter</span>
+                <i class="icon-sidebar bi bi-twitter text-end m-0"></i>
+            </div>
+        </div>
+    </div>
+</div>
