@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CredentialsService } from '../../services/auth/credentials.service';
+import { UserInterface } from '../../services/interfaces/auth';
 
 @Component({
   selector: 'app-registro',
@@ -12,11 +13,34 @@ import { CredentialsService } from '../../services/auth/credentials.service';
 })
 export class RegistroComponent {
 
-  registroForm:FormGroup
+  registerForm:FormGroup
 
   constructor(
     private formBuilder: FormBuilder,
-    private credentialService: CredentialsService
-  ){}
+    private credentialsService: CredentialsService
+  ){
+    this.registerForm = this.formBuilder.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      roleName: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+    })
+  }
 
+  submit() {
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.credentialsService.register(this.registerForm.value as UserInterface).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
+  }
 }

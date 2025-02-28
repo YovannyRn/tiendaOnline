@@ -14,9 +14,11 @@ export type LoginInterface = Pick<UserInterface, "username" | "password">
 
 
 
-// export type LoginInterface2 = Omit<UserInterface, "address" | "firstName" | "lastName" | "roleName">
-//
-// export interface LoginInterface3 extends UserInterface {
-//   email: string;
-// }
+ export type LoginInterface2 = Omit<UserInterface, "address" | "firstName" | "lastName" | "roleName">
+
+ export interface LoginInterface3 extends UserInterface {
+   email: string;
+   password: string;
+   
+  }
 
