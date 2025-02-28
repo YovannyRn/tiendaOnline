@@ -15,21 +15,21 @@
                 <div class="row g-0 justify-content-center w-100">
                     <div class="col-lg-9">
                         <h3 class="m-0 mb-5">Bienvenido a Tienda Online</h3>
-                        <form class=" mt-5 mb-3 justify-content-center">
+                        <form method="post" class=" mt-5 mb-3 justify-content-center" [formGroup]="loginForm" (ngSubmit)="submit()">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Nombre de Usuario</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" formControlName="username">
                               </div>
                               <div class="mb-3">
                                 <label for="password" class="form-label">Contaseña</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" formControlName="password">
                               </div>
                               <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox">
                                 <label class="form-check-label" for="checkbox">Recordar Contaseña</label>
                               </div>
                               <div class="text-center">
-                                <button type="submit" class="btn btn-secondary w-75">Iniciar Sesión</button>
+                                <button type="submit" class="btn btn-secondary w-75" [disabled]="loginForm.invalid" routerLink="/app/control-panel">Iniciar Sesión</button>
                               </div>
                         </form>
                         <div class="text-center mb-5">
