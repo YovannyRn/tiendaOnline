@@ -2,21 +2,21 @@
 
   <div class="col-6 d-flex flex-row align-items-center column-gap-3">
     <div class="imagen-perfil position-relative rounded-circle bg-white d-flex align-items-center justify-content-center"> <!-- Contenedor de la imagen de perfil -->
-      <i class="bi bi-person-fill text-black fs-4" (click)="toggleItem('isActivePerfil')"></i>
+      <i class="bi bi-person-fill text-black fs-4" (click)="toggleItem(TabOption.Perfil)"></i>
       <span class="rounded-circle border border-2 position-absolute"></span>
       <app-tab-perfil *ngIf="isActiveItems.isActivePerfil"></app-tab-perfil>
     </div> <!-- fin-imagen-perfil -->
     <div class="position-relative"> <!-- Contenedor de las notificaciones (campana) -->
-      <i type="button" class="bi bi-bell-fill text-white fs-5" (click)="toggleItem('isActiveNotification')"></i>
+      <i type="button" class="bi bi-bell-fill text-white fs-5" (click)="toggleItem(TabOption.Notification)"></i>
       <span class="position-absolute notify rounded-circle small d-flex align-items-center justify-content-center text-white">5</span>
       <app-tab-notification *ngIf="isActiveItems.isActiveNotification"></app-tab-notification>
     </div> <!-- fin-notificaciones -->
     <div> <!-- Contenedor del menú cuadrado -->
-      <i class="bi bi-grid-3x3-gap-fill text-white fs-5" (click)="toggleItem('isActivePanel')"></i>
+      <i class="bi bi-grid-3x3-gap-fill text-white fs-5" (click)="toggleItem(TabOption.Panel)"></i>
       <app-tab-panel *ngIf="isActiveItems.isActivePanel"></app-tab-panel>
     </div><!-- fin-menu-cuadrado -->
     <div> <!-- Contenedor de ajustes -->
-      <i class="bi bi-gear-fill text-white fs-5" (click)="toggleItem('isActiveSetting')"></i>
+      <i class="bi bi-gear-fill text-white fs-5" (click)="toggleItem(TabOption.Settings)"></i>
     </div> <!-- fin-ajustes -->
   </div>
 
@@ -36,4 +36,4 @@
 
 </header>
 
-<app-tab-setting *ngIf="isActiveItems.isActiveSetting"></app-tab-setting>
+<app-tab-setting *ngIf="isActiveItems.isActiveSettings"></app-tab-setting>

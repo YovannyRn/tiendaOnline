@@ -34,6 +34,7 @@ enum TabOption {
 })
 export class HeaderBackofficeComponent {
 
+  TabOption = TabOption;
   isActive = true;
 
   isActiveItems: Record<TabOption, boolean> = {
@@ -63,5 +64,6 @@ export class HeaderBackofficeComponent {
       this.isActiveItems[option] = true;
     }
   }
+  
 }
 //prueba
