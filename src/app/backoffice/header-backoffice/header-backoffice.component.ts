@@ -6,6 +6,19 @@ import { TabPerfilComponent } from "../tabs/tab-perfil/tab-perfil.component";
 import { SidebarStatusService } from '../../services/status/sidebar-status.service';
 import { TabSettingComponent } from '../tabs/tab-setting/tab-setting.component';
 
+
+
+/*
+  cambio para definir las opciones en isActiveItems
+*/
+enum TabOption {
+  Notification = 'isActiveNotification',
+  Panel = 'isActivePanel',
+  Perfil = 'isActivePerfil',
+  Settings = 'isActiveSettings'
+}
+
+
 @Component({
   selector: 'app-header-backoffice',
   imports: [
@@ -21,14 +34,14 @@ import { TabSettingComponent } from '../tabs/tab-setting/tab-setting.component';
 })
 export class HeaderBackofficeComponent {
 
-  isActive: boolean = true;
+  isActive = true;
 
-  isActiveItems: any = {
-  isActiveNotification: false,
-  isActivePanel: false,
-  isActivePerfil: false,
-  isActiveSettings: false
-  }
+  isActiveItems: Record<TabOption, boolean> = {
+    [TabOption.Notification]: false,
+    [TabOption.Panel]: false,
+    [TabOption.Perfil]: false,
+    [TabOption.Settings]: false
+  };
 
   constructor(
     private sidebarStatusService: SidebarStatusService,
@@ -40,15 +53,14 @@ export class HeaderBackofficeComponent {
     this.sidebarStatusService.changeStatus(this.isActive);
   }
 
-  toggleItem(option :string){
-    if(this.isActiveItems[option]){
+  toggleItem(option: TabOption) {
+    if (this.isActiveItems[option]) {
       this.isActiveItems[option] = false;
-    }
-    else{
+    } else {
       Object.keys(this.isActiveItems).forEach(item => {
-        this.isActiveItems[item] = false
-      })
-      this.isActiveItems[option] = true
+        this.isActiveItems[item as TabOption] = false;
+      });
+      this.isActiveItems[option] = true;
     }
   }
 }
