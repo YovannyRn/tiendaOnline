@@ -12,6 +12,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { PerfilComponent } from './backoffice/perfil/perfil.component';
 import { authGuard } from './services/guards/auth.guard';
 import { publicGuard } from './services/guards/public.guard';
+import { PructosComponent } from './backoffice/pructos/pructos.component';
+import { PoliticaPrivacidadComponent } from './cliente/privacidadSeguridad/politica-privacidad/politica-privacidad.component';
 
 export const routes: Routes = [
 
@@ -23,6 +25,7 @@ export const routes: Routes = [
       {path: "login",canActivate:[publicGuard], component: LoginComponent}, // -> www.ejemplo.com/login
       {path: "registro",canActivate:[publicGuard], component: RegistroComponent}, // -> www.ejemplo.com/registro
       {path: "tienda", component: TiendaComponent}, // www.ejemplo.com/tienda
+      
     ]
   },
   // backoffice
@@ -34,6 +37,8 @@ export const routes: Routes = [
       {path: "", redirectTo: "control-panel", pathMatch: "full"}, // -> www.ejemplo.com/app
       {path: "control-panel", component: ControlPanelComponent}, // -> www.ejemplo.com/app/control-panel
       {path: "perfil", component: PerfilComponent}, // -> www.ejemplo.com/app/perfil
+      {path: "productos", component: PructosComponent}, // -> www.ejemplo.com/app/productos
+      {path: "privacidad", component: PoliticaPrivacidadComponent}, // www.ejemplo.com/privacidad
     ]
   },
 
