@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
 import {CredentialsService} from '../../services/auth/credentials.service';
 import {LoginInterface} from '../../services/interfaces/auth';
-import { TokenService } from '../../services/auth/token.service';
+import {TokenService} from '../../services/auth/token.service';
+import {Router, RouterLink} from '@angular/router';
+import {PopupService} from '../../services/utils/popup.service';
 import { UseSatateService } from '../../services/auth/use-satate.service';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink,ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule, RouterLink
+  ],
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -23,7 +26,8 @@ export class LoginComponent {
     private credentialsService: CredentialsService,
     private tokenService: TokenService,
     private router: Router,
-    private userStateService: UseSatateService
+    private useStateService: UseSatateService,
+    private popupService: PopupService
   ) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
@@ -31,21 +35,40 @@ export class LoginComponent {
     })
   }
 
-   submit() {
+  submit() {
     if (this.loginForm.invalid) {
       return;
     }
 
     this.credentialsService.login(this.loginForm.value as LoginInterface).subscribe({
       next: (data) => {
-        this.tokenService.saveToken(data.token,"3453525235");
-        this.userStateService.save(data.username, data.role);
-        this.router.navigate(['/app/control-panel']);
-        console.log(data);
+        this.popupService.loader("Cargando...", "Espere un momento");
+
+        setTimeout(() => {
+          this.tokenService.saveToken(data.token, "234325423423")
+          this.useStateService.save(data.username, data.role)
+          this.popupService.close();
+          this.router.navigate(['/app/control-panel']);
+        }, 1500)
+
       },
       error: err => {
-        console.log(err)
+        let message;
+        if (err.error == "Invalid password") {
+          message = "Contraseña incorrecta, inténtelo de nuevo."
+        }
+        else if (err.error == "User not found") {
+          message = "El usuario no existe. Compruebe los datos o registrate en la plataforma"
+        }
+        else {
+          message = err.error;
+        }
+
+        this.popupService.showMessage(
+          'Ups ha ocurrido un error', message, 'error'
+        );
       }
     })
   }
+
 }

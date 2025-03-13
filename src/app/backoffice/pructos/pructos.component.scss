@@ -1,3 +1,28 @@
 #button-compra{
     background-color: #F1C40F;
 }
+.search-container {
+    input::placeholder {
+      color: #939393;
+    }
+
+    .icon-search {
+      left: 5px;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+    }
+  }
+.cart{
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+}

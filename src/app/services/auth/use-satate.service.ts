@@ -19,7 +19,7 @@ export class UseSatateService {
       return null;
     }
 
-    return session.role;
+    return session.username;
   }
 
   getRole(): string | null {
@@ -31,7 +31,7 @@ export class UseSatateService {
     return session.role;
   }
 
-  remove(){
+  removeSession(){
     sessionStorage.removeItem(this.USER_KEY);
   }
 }

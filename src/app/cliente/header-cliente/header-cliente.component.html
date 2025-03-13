@@ -9,12 +9,17 @@
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Inicio</a>
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Tienda</a>
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href=""><i class="bi bi-cart"></i></a>
-      <button type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="/login">
+
+      <!-- Mostrar botón "Iniciar sesión" solo si NO está autenticado -->
+      <button *ngIf="!isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="/login">
         <i class="bi bi-person"></i> Iniciar sesión
       </button>
+
+      <!-- Mostrar botón "Cerrar sesión" si está autenticado -->
+      <button *ngIf="isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+      </button>
+
     </nav>
-  </div>
-  <div class="d-none">
-    <button type="button"><i class="bi bi-list"></i></button>
   </div>
 </header>

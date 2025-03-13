@@ -2,9 +2,13 @@
     <div class="d-flex flex-column align-items-end text-white">
         <div class="w-100 text-end text-primary py-4 small">
             <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Navegación General'}}</p>
-            <div class=" element-sidebar w-100 text-end text-white py-2">
+            <div class=" element-sidebar w-100 text-end text-white py-2" routerLink="">
                 <span>Inicio</span>
                 <i class="icon-sidebar bi bi-house-fill text-end m-0"></i>
+            </div>
+            <div class=" element-sidebar w-100 text-end text-white py-2" routerLink="/app/control-panel">
+                <span>Panel de Control</span>
+                <i class="icon-sidebar bi bi-grid-1x2-fill text-end m-0"></i>
             </div>
             <div class=" element-sidebar w-100 text-end text-white py-2" routerLink="/app/perfil">
                 <span>Perfil</span>
@@ -44,7 +48,7 @@
                 <span>Soporte al cliente</span>
                 <i class="icon-sidebar bi bi-question-circle-fill text-end m-0"></i>
             </div>
-            <div class=" element-sidebar w-100 text-end text-white py-2">
+            <div class=" element-sidebar w-100 text-end text-white py-2" (click)="closeSession()">
                 <span>Cerrar sesión </span>
                 <i class="icon-sidebar bi bi-box-arrow-right text-end m-0"></i>
             </div>
