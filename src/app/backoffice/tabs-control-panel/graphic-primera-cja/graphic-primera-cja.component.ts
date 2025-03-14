@@ -39,7 +39,7 @@ export class GraphicPrimeraCjaComponent implements OnInit {
     labels: string[],
     datasets: ChartDataset<'pie'>[],
   } = {
-    labels:[],
+    labels:['red', 'gray', 'green', 'yellow'],
     datasets:[{
       data: [],
       backgroundColor:[],
