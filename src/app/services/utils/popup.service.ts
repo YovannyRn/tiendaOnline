@@ -63,7 +63,7 @@ export class PopupService {
     const result: SweetAlertResult<any> = await Swal.fire({
       title: title,
       text: message,
-      icon: "question",
+      icon: 'success',
       confirmButtonText: confirmButtonText,
       cancelButtonText: cancelButtonText,
       showCancelButton: true

@@ -9,6 +9,7 @@ import { PasswordUpdateService } from '../../services/auth/password-update.servi
 import Swal from 'sweetalert2';
 import { tokenInterceptor } from '../../services/interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PasswordI } from '../../services/interfaces/password';
 
 
 @Component({
@@ -60,47 +61,43 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       confirmButtonText: 'Cambiar',
       cancelButtonText: 'Cancelar',
       preConfirm: () => {
-        const username = (document.getElementById('swal-username') as HTMLInputElement)?.value;
-        const oldPassword = (document.getElementById('swal-oldPassword') as HTMLInputElement)?.value;
-        const newPassword = (document.getElementById('swal-newPassword') as HTMLInputElement)?.value;
-
+        const username = (document.getElementById('swal-username') as HTMLInputElement)?.value.trim();
+        const oldPassword = (document.getElementById('swal-oldPassword') as HTMLInputElement)?.value.trim();
+        const newPassword = (document.getElementById('swal-newPassword') as HTMLInputElement)?.value.trim();
+  
         if (!username || !oldPassword || !newPassword) {
           Swal.showValidationMessage('Todos los campos son obligatorios.');
           return null;
         }
 
-        return { username, oldPassword, newPassword };
+        return { username, oldPassword, newPassword } as PasswordI;  // Se usa la interfaz aquí
       }
     }).then((result) => {
       if (result.isConfirmed && result.value) {
-        const { username, oldPassword, newPassword } = result.value;
-
-      
-        this.passwordUpdateService.updatePassword(username, oldPassword, newPassword).subscribe({
-          next: (response) => {
-            if (response.status === 200) {
-              Swal.fire({
-                title: 'Éxito',
-                text: `La contraseña se ha cambiado con éxito.`,
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-              });
-            } else {
-              Swal.fire({
-                title: 'Error',
-                text: `No se pudo cambiar la contraseña. Código de estado: ${response.status}`,
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              });
-            }
+        const passwordData: PasswordI = result.value;
+  
+        this.passwordUpdateService.updatePassword(passwordData).subscribe({
+          next: () => {
+            Swal.fire({
+              title: 'Éxito',
+              text: 'La contraseña se ha cambiado con éxito.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            });
           },
           error: (err) => {
-            console.error('Error al cambiar la contraseña:', err);
-        
+            let errorMessage = 'No se pudo cambiar la contraseña.';
+            if (err.status === 400) {
+              errorMessage = 'Error: Datos incorrectos o formato inválido.';
+            } else if (err.status === 401) {
+              errorMessage = 'Error: No autorizado. Verifique sus credenciales.';
+            } else if (err.status === 500) {
+              errorMessage = 'Error del servidor. Intente nuevamente más tarde.';
+            }
             Swal.fire({
-              title: 'si es 200 se cambio con exito',
-              text: ` Código de estado ->: ${err.status}`,
-              icon: 'question',
+              title: 'Error',
+              text: errorMessage,
+              icon: 'error',
               confirmButtonText: 'Aceptar'
             });
           }
@@ -108,6 +105,5 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       }
     });
   }
-  
   
  } 
