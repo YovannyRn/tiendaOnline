@@ -14,7 +14,6 @@ export class PasswordUpdateService {
   updatePassword(username: string, oldPassword: string, newPassword: string): Observable<any> {
     const updatePasswordRequest = { username, oldPassword, newPassword };
 
-    // Obtén el token del TokenService
     const token = this.tokenService.getAccessToken();
     console.log('Token obtenido:', token);
     if (!token) {

@@ -14,7 +14,7 @@
                 <span>Perfil</span>
                 <i class="icon-sidebar bi bi-person-fill text-end m-0"></i>
             </div>
-            <div class=" element-sidebar w-100 text-end text-white py-2">
+            <div class=" element-sidebar w-100 text-end text-white py-2" (click)="openChangePasswordPopup()">
                 <span>Cambiar contraseña</span>
                 <i class="icon-sidebar bi bi-key-fill text-end m-0"></i>
             </div>
@@ -25,7 +25,7 @@
                 <span>Productos</span>
                 <i class="icon-sidebar bi bi-bag-fill text-end m-0"></i>
             </div>
-            <div class=" element-sidebar w-100 text-end text-white py-2">
+            <!-- <div class=" element-sidebar w-100 text-end text-white py-2">
                 <span>Pedidos</span>
                 <i class="icon-sidebar bi bi-bag-check-fill text-end m-0"></i>
             </div>
@@ -36,18 +36,18 @@
             <div class=" element-sidebar w-100 text-end text-white py-2">
                 <span>Roles y permisos</span>
                 <i class="icon-sidebar bi bi-people-fill text-end m-0"></i>
-            </div>
+            </div> -->
         </div>
         <div class="w-100 text-end text-primary py-4 small">
             <p class="px-2 not-me">{{!isActiveMenuHeader ? '...' : 'Soporte y Ayuda'}}</p>
-            <div class=" element-sidebar w-100 text-end text-white py-2">
+            <!-- <div class=" element-sidebar w-100 text-end text-white py-2">
                 <span>Sobre Nosotros</span>
                 <i class="icon-sidebar bi bi-info-circle-fill text-end m-0"></i>
             </div>
             <div class=" element-sidebar w-100 text-end text-white py-2">
                 <span>Soporte al cliente</span>
                 <i class="icon-sidebar bi bi-question-circle-fill text-end m-0"></i>
-            </div>
+            </div> -->
             <div class=" element-sidebar w-100 text-end text-white py-2" (click)="closeSession()">
                 <span>Cerrar sesión </span>
                 <i class="icon-sidebar bi bi-box-arrow-right text-end m-0"></i>

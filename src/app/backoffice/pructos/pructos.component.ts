@@ -29,13 +29,13 @@ export class PructosComponent implements OnInit {
     });
   }
 
-  // Función para mostrar el formulario del popup
+  
   async openAddProductPopup() {
     const result = await this.popupService.showProductFormPopup();
     if (result) {
       this.productService.createProduct(result).subscribe({
         next: (product) => {
-          this.products.push(product); // Agregar el nuevo producto a la lista
+          this.products.push(product); 
           this.popupService.showMessage('Éxito', 'Producto creado con éxito', 'success');
         },
         error: (err) => {
@@ -46,7 +46,7 @@ export class PructosComponent implements OnInit {
     }
   }
 
-   // Función para eliminar un producto con confirmación
+   
    async openDeleteProductPopup(productId: number) {
     const confirmed = await this.popupService.showConfirmation(
       'Confirmación de eliminación', 
@@ -58,7 +58,7 @@ export class PructosComponent implements OnInit {
     if (confirmed) {
       this.productService.deleteProduct(productId).subscribe({
         next: () => {
-          this.products = this.products.filter(product => product.id !== productId); // Eliminar el producto de la lista
+          this.products = this.products.filter(product => product.id !== productId); 
           this.popupService.showMessage('Éxito', 'Producto eliminado con éxito', 'success');
         },
         error: (err) => {

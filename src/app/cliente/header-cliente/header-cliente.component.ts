@@ -21,11 +21,11 @@ export class HeaderClienteComponent {
   }
 
   checkSession(): void {
-    this.isLoggedIn = this.tokenService.getAccessToken() !== null; // Usa TokenService en lugar de sessionStorage
+    this.isLoggedIn = this.tokenService.getAccessToken() !== null; 
   }
 
   logout(): void {
-    this.tokenService.removeToken(); // Usa TokenService para borrar el token
+    this.tokenService.removeToken();
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
   }

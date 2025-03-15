@@ -46,13 +46,11 @@ export class RegistroComponent {
           'success'
         );
 
-        // Redirigir al login después de 2 segundos
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 2000);
       },
       error: (err) => {
-        // Mostrar el mensaje de error si ocurre un problema
         let message = 'Ocurrió un error. Inténtalo de nuevo.';
         if (err.error?.message) {
           message = err.error.message;

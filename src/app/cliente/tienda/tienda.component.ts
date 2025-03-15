@@ -39,7 +39,6 @@ export class TiendaComponent implements OnInit {
     });
   }
 
-  // Añadir producto al carrito
   addToCart(product: ProductInterface): void {
     this.cart.push(product);
     this.cartCount = this.cart.length;
@@ -47,18 +46,16 @@ export class TiendaComponent implements OnInit {
   }
 
   
-  // Mostrar detalles del producto en popup
   openProductDetailsPopup(product: ProductInterface) {
     this.popupService.showProductDetailsPopup(product);
   }
 
-  // Nueva función para abrir el formulario de pago
 processPayment(): void {
   this.popupService.showPaymentPopup().then((paymentData) => {
     if (paymentData) {
       console.log('Pago exitoso:', paymentData);
       this.popupService.showMessage("Pago Exitoso", "Tu compra se ha realizado correctamente.", "success");
-      this.cart = []; // Vaciar el carrito después de la compra
+      this.cart = []; 
       this.cartCount = 0;
       this.totalAmount = 0;
     }
