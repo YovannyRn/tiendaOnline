@@ -1,9 +1,11 @@
-
-
 header {
   height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-  .imagen-perfil{
+  .imagen-perfil {
     width: 38px;
     height: 38px;
 
@@ -27,7 +29,6 @@ header {
     right: -6px;
     top: -3px;
   }
-
 
   .search-container {
     input::placeholder {
@@ -53,6 +54,34 @@ header {
 
     img {
       width: 75px;
+    }
+  }
+
+  @media (max-width: 864px) {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+    text-align: center;
+
+    .col-6 {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .logo-container {
+      padding: 0;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 60px;
+      }
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 300px;
     }
   }
 }

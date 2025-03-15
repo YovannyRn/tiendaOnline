@@ -1,28 +1,98 @@
-#button-compra{
-    background-color: #F1C40F;
-}
-.search-container {
-    input::placeholder {
-      color: #939393;
-    }
-
-    .icon-search {
-      left: 5px;
-      z-index: 2;
-      top: 0;
-      bottom: 0;
-    }
+@media (min-width: 870px) {
+  #button-add{
+    display: none;
   }
-.cart{
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+  #button-compra{
+    background-color: #F1C40F;
+  }
+
+  #button-compra-plus{
+    background-color: #F1C40F;
+    display: none;
+  }
+  
+}
+
+@media (max-width: 870px) {
+  #button-add {
+    width: 40px;
+    height: 37px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    padding: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5rem;
+  }
+
+  #button-addProduct {
+    display: none;
+  }
+
+  #button-add i {
+    color: white;
+  }
+
+  #button-add span {
+    display: none;
+  }
+  #button-update {
+    width: 20px;
+    height: 37px;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #button-compra{
+    background-color: #F1C40F;
+    display: none;
+  }
+}
+
+@media (max-width: 870px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .album .row {
+    row-gap: 15px;
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
+  #cards {
+    width: 100%;
+    max-width: 300px;
+  }
+  #button-compra{
+    background-color: #F1C40F;
+  }
+  #button-compra-plus{
+    background-color: #F1C40F;
+  }
+  
+}
+#button-update {
+  background-color:#de283b;
+  width: 25px;
+  height: 25px;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }

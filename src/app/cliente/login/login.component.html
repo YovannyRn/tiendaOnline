@@ -2,19 +2,18 @@
 <div class="logo position-relative w-100 h-100">
 
     <div class="row g-0">
-        <div class="section-uno col-lg-6 col-xl-8 bg-gradient p-0">
+        <div class="section-uno col-lg-6 col-xl-8 bg-gradient p-0 d-none d-lg-block">
             <div class="p-24 h-100">
                 <div class="align-items-center justify-content-center d-none d-lg-flex h-100">
-                    <img src="login-bg.svg" alt="login" style="max-width: 500px;">
+                    <img src="login-bg.svg" alt="login" class="img-fluid d-none d-lg-block" style="max-width: 500px;">
                 </div>
             </div>
         </div>
 
-        <div class="section-dos col-lg-7 col-xl-4 p-0">
-            <div class=" d-flex align-items-center align-items-lg-center justify-content-center h-100">
+        <div class="section-dos col-lg-7 col-xl-4 p-0 d-flex align-items-center justify-content-center">
                 <div class="row g-0 justify-content-center w-100">
-                    <div class="col-lg-9">
-                        <h3 class="m-0 mb-5">Bienvenido a Tienda Online</h3>
+                    <div class="col-lg-9 mx-5 px-5">
+                        <h3 class="m-0 mb-5 text-center">Bienvenido a Tienda Online</h3>
                         <form method="post" class=" mt-5 mb-3 justify-content-center" [formGroup]="loginForm" (ngSubmit)="submit()">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Nombre de Usuario</label>
@@ -40,7 +39,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>  
     

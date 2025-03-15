@@ -1,0 +1,92 @@
+#button-compra {
+  background-color: #F1C40F;
+}
+#button-compra-detail {
+  background-color: #F1C40F;
+}
+
+.search-container {
+  input::placeholder {
+    color: #939393;
+  }
+
+  .icon-search {
+    left: 5px;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+// Responsividad del Header
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px;
+
+  @media (max-width: 992px) { 
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+
+    .navbar-brand {
+      width: 100%;
+      text-align: center;
+    }
+
+    .search-container {
+      width: 80%;
+    }
+
+    .col-3 {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 576px) { 
+    .search-container {
+      width: 90%;
+    }
+  }
+}
+
+// Ajuste de tarjetas en diferentes tamaños de pantalla
+.row {
+  @media (max-width: 992px) { // Tablets
+    .row-cols-md-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) { // Teléfonos grandes
+    .row-cols-sm-2 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+// Botón de carrito flotante
+.cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  button {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+  }
+
+  @media (max-width: 768px) {
+    right: 10px;
+    bottom: 10px;
+
+    button {
+      font-size: 1rem;
+      padding: 8px 12px;
+    }
+  }
+}

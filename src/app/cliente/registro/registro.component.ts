@@ -14,14 +14,14 @@ import { PopupService } from '../../services/utils/popup.service';
 })
 export class RegistroComponent {
 
-  registerForm:FormGroup
+  registerForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private credentialsService: CredentialsService,
     private popupService: PopupService,
     private router: Router
-  ){
+  ) {
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -29,26 +29,30 @@ export class RegistroComponent {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       address: ['', [Validators.required]],
-    })
+    });
   }
 
   submit() {
     if (this.registerForm.invalid) {
       return;
     }
-  
+
     this.credentialsService.register(this.registerForm.value as UserInterface).subscribe({
       next: (data) => {
+        // Mostrar el mensaje de éxito
         this.popupService.showMessage(
           'Registro exitoso',
           'Tu cuenta ha sido creada correctamente',
           'success'
         );
+
+        // Redirigir al login después de 2 segundos
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 2000);
       },
-      error: err => {
+      error: (err) => {
+        // Mostrar el mensaje de error si ocurre un problema
         let message = 'Ocurrió un error. Inténtalo de nuevo.';
         if (err.error?.message) {
           message = err.error.message;
@@ -57,5 +61,4 @@ export class RegistroComponent {
       }
     });
   }
-  
 }

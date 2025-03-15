@@ -35,14 +35,14 @@ export class ProductService {
   }
 
   createProduct(product: ProductInterface): Observable<ProductInterface> {
-    return this.http.post<ProductInterface>(`${environment.apiUrl}/products`, product);
+    return this.http.post<ProductInterface>(`${environment.apiUrl}/products/add`, product);
   }
 
   updateProduct(id: string, product: ProductInterface): Observable<ProductInterface> {
     return this.http.put<ProductInterface>(`${environment.apiUrl}/products/${id}`, product);
   }
 
-  deleteProduct(id: string): Observable<void> {
+  deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.apiUrl}/products/${id}`);
   }
 }

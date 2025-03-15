@@ -1,25 +1,30 @@
 <header class="bg-dark row g-0 position-sticky top-0 z-3 py-2">
-  <div class="col-6 text-center">
+  <!-- Logo -->
+  <div class="col-12 col-md-6 text-center text-md-start">
     <a class="text-decoration-none d-block" rel="noopener">
-      <img style="max-width: 115px" src="/logo.svg" alt="logo">
+      <img class="mx-5" style="max-width: 115px" src="/logo.svg" alt="logo">
     </a>
   </div>
-  <div class="col-6 d-flex align-items-center justify-content-center">
-    <nav class="d-flex flex-row flex-nowrap align-items-center">
-      <a class="text-white text-decoration-none py-2 px-4" rel="noopener" routerLink="/app/productos">Inicio</a>
-      <a type="button" class="text-white text-decoration-none py-2 px-4" rel="noopener" routerLink="/app/control-panel">Tienda</a>
+
+  <!-- Menú y botones -->
+  <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-end">
+    <nav class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-center">
+      <a class="text-white text-decoration-none py-2 px-4" rel="noopener" routerLink="">Inicio</a>
+      <a type="button" class="text-white text-decoration-none py-2 px-4" rel="noopener" routerLink="/tienda">Tienda</a>
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener"><i class="bi bi-cart"></i></a>
 
       <!-- Mostrar botón "Iniciar sesión" solo si NO está autenticado -->
-      <button *ngIf="!isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="/login">
+      <button *ngIf="!isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3 mt-2 mt-md-0" routerLink="/login">
         <i class="bi bi-person"></i> Iniciar sesión
       </button>
 
+      <button type="button" class="btn btn-white text-decoration-none py-1 px-3 mx-4 mt-2 mt-md-0" routerLink="/app/control-panel">Back Office</button>
+
       <!-- Mostrar botón "Cerrar sesión" si está autenticado -->
-      <button *ngIf="isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3" (click)="logout()">
+      <button *ngIf="isLoggedIn" type="button" class="btn btn-white text-decoration-none py-1 px-3 mt-2 mt-md-0" (click)="logout()">
         <i class="bi bi-box-arrow-right"></i> Cerrar sesión
       </button>
-
     </nav>
   </div>
 </header>
+

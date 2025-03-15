@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../environments/environment';
+import {jwtDecode} from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,19 @@ export class TokenService {
   removeToken(){
     this.cookieService.delete(this.ACCESS_TOKEN_KEY, '/', '', environment.tokenSecure, 'Strict') //si el secure es true, tiene que estar en true, si es false tiene que estar en false
     this.cookieService.delete(this.REFRESH_TOKEN_KEY, '/', '', environment.tokenSecure, 'Strict')// es prduccion tiene que ser true 
+  }
+
+  getUsername(): string | null {
+    const token = this.getAccessToken();
+    if (!token) return null;
+  
+    try {
+      const decoded: any = jwtDecode(token);
+      return decoded.username || null; // Ajusta según la estructura del token.
+    } catch (error) {
+      console.error('Error al decodificar el token:', error);
+      return null;
+    }
   }
 
 }

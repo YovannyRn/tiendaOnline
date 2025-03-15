@@ -1,7 +1,30 @@
 <app-carrousel></app-carrousel>
 <app-tab-info></app-tab-info>
 
-<div class="cart position-absolute bottom-0 end-0 p-3">
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <div class="col" *ngFor="let product of products; let i = index">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p class="card-text">{{ product.name }}</p>
+            <img class="bd-placeholder-img card-img-top my-3 custom-img" src="cocacola.webp" alt="imagen">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button id="button-compra" type="button" class="btn btn-sm">Añadir al carrito</button>
+              </div>
+              <small class="text-muted">{{ product.price }} €</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="cart position-fixed bottom-0 end-0 p-3">
     <button class="fs-6 btn btn-primary" type="button">
       <i class="bi bi-cart4"></i>
     </button>

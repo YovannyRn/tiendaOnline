@@ -58,3 +58,34 @@
     
 }
 
+@media (max-width: 720px) {
+    .perfil {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .perfil-card {
+        padding: 1rem;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+
+    .avatar img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .list-profile {
+        padding: 0;
+        list-style: none;
+    }
+
+    .btn-primary {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+}

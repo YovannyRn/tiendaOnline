@@ -1,1 +1,44 @@
-<p>tienda works!</p>
+<header class="navbar border border-light-subtle shadow-sm mt-4 mx-2 rounded-3 position-sticky row g-0 bg-dark"> <!-- header -->
+    <div class="navbar-brand mx-2 col-2 text-white" href="#">Productos</div>
+    <div class="position-relative rounded-pill overflow-hidden search-container col-6 justify-content-center"> 
+      <i class="bi bi-search position-absolute icon-search bg-white d-flex align-items-center justify-content-center"></i>
+      <input type="text" class="form-control w-100 text-end" placeholder="Buscar..">
+    </div>
+  <div class="col-3 d-flex justify-content-end">
+  </div>
+</header>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let product of products; let i = index">
+        <div id="cards" class="card shadow-sm">
+          <div class="card-body">
+            <p class="card-text">{{ product.name }}</p>
+            <img class="bd-placeholder-img card-img-top my-3" src="cocacola.webp" alt="imagen" width="100px">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button id="button-compra" type="button" class="btn btn-sm" (click)="addToCart(product)">Añadir al carrito</button>
+              </div>
+              <div class="btn-group">
+                <button id="button-compra-detail" type="button" class="btn btn-sm "><i class="bi bi-info-square-fill" (click)="openProductDetailsPopup(product)"></i></button>
+              </div>
+              <small class="text-muted">{{ product.price }} €</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart position-fixed bottom-0 end-0 p-3 text-black">
+    <button class="btn btn-primary position-relative" (click)="processPayment()">
+      <i class="bi bi-cart4"></i>
+      <span *ngIf="cartCount > 0" class="text-dark z-2">
+        {{ cartCount }}
+      </span>
+    </button>
+  </div>
+  
+

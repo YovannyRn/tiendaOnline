@@ -1,0 +1,31 @@
+#button-compra{
+    background-color: #F1C40F;
+}
+/* Ajustes para pantallas muy pequeñas (menos de 576px) */
+@media (max-width: 576px) {
+    .card {
+      font-size: 0.8rem; /* Reducir el tamaño del texto */
+      width: 50%;
+      margin: auto;
+    }
+  
+    .custom-img {
+      width: 100px; /* Ajustar el tamaño de la imagen para pantallas pequeñas */
+      justify-content: center;
+      align-items: center;
+      margin-left: 60px;
+    }
+  
+    .card-body {
+      padding: 0.5rem; /* Reducir el padding en las tarjetas */
+    }
+  
+    .btn {
+      font-size: 0.75rem; /* Reducir el tamaño de los botones */
+    }
+  
+    .text-muted {
+      font-size: 0.75rem; /* Reducir el tamaño del texto de precio */
+    }
+  }
+  
